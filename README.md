@@ -1,15 +1,24 @@
-### How-to-run-a-java-file-using-jar-and-gradle-build-tools-from-CLI
+# How to Run a Java File Using JAR and Gradle Build Tools from CLI
 
-#Setup of basic gradle using cli:
-'''
+## Setup a Basic Gradle Project Using CLI
+To initialize a basic Gradle project for a Java application, run:
+
+```sh
 gradle init --use-defaults --type java-application
-'''
-The above command will setup a basic gradle project
-'''
+```
+This command sets up a basic Gradle project structure.
+
+## Build the Project
+To build the project, use:
+
+```sh
 ./gradlew build
-'''
-To prepare a jar which is executable, you need to setup manifest property in build.gradle to identify what is the main class to execute
-'''
+```
+
+## Configure the Manifest for Executable JAR
+To make the JAR file executable, specify the `Main-Class` in `build.gradle`:
+
+```groovy
 jar {
     manifest {
         attributes (
@@ -17,13 +26,21 @@ jar {
         )
     }
 }
-'''
-The above command can build your project
-'''
+```
+
+## Generate the JAR File
+Run the following command to create a JAR file:
+
+```sh
 ./gradlew jar
-'''
-The above command creates a new jar file in build/libs folder
-'''
+```
+The JAR file will be created inside the `build/libs` directory.
+
+## Run the Executable JAR
+Execute the JAR file using:
+
+```sh
 java -jar build/libs/filename.jar
-'''
-The above command will execute main.java file from terminal CLI.
+```
+This command will run your Java application from terminal CLI.
+
